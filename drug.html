@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2018-11-26T11:25:54.303327287"/>
+	<meta name="changed" content="2018-12-01T20:02:38.459280827"/>
+	<style type="text/css">
+		@page { margin: 1in }
+		p { margin-bottom: 0.1in; line-height: 115% }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 20pt"><b>Predicting
+Drug Consumption</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 20pt"><b>Using
+Data Mining Classifiers</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="4" style="font-size: 15pt">Trung
+N. Nguyen</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>ABSTRACT</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Addiction
+derives from the Latin </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><i><span style="text-decoration: none"><span style="font-weight: normal">addīcere
+</span></span></i></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">“
+to surrender” or “to enslave to”. </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">Addicts
+are people who surrender either or altogether their cognition </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">and/or</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">motor
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">function.
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">The
+reason for the desire is due to reinforc</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">ement</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+and appetitive stimul</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">i</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">The
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">communal</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+element in addictive drugs is the release of dopamine, which is a
+neurotransmitter that causes excitatory responses and aids in
+feelings of reward</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">[3]</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">Although
+not all addictive drugs are illegal, addict</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">s</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+show similar </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">tolerance
+and withdraw</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">a</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">l
+symptoms. Tolerance causes the body to become desensitized to the
+effects of drug</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">s</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+resulting in larger doses to reach the same effects as the initial
+doses, </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">while
+withdraw</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">a</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">l
+symptoms are the opposite effects of drug</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">s</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">[3]</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
+ </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">Addi</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">c</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">ts
+crave the positive reinforcement gained from drugs, which over time,
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">their</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">
+only purpose is to subside the withdrawal symptoms turning the
+positive </span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">in</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">to
+a negative reinforcement</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">[3]</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">.
+</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">Although
+some addicts are able to stop the addict</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">ion</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span lang="la-VA"><span style="font-style: normal"><span style="text-decoration: none"><span style="font-weight: normal">,
+this does not guarantee the loss of cravings or the probability of
+relapse.</span></span></span></span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">This
+paper </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">evaluate</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">s</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+various classifiers</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+to predict </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">different
+types of drug consumption based on patient’s age, gender,
+education, country, and personality traits based on NEO-FFI-R,
+</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">B</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">IS</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">-</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">11,
+and ImpSS</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.
+</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Experimental
+results will display </span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">the
+</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">accuracy
+of the mode</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">l
+applied on the Drug Consumption Dataset</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">[1]</span></font></font></font><font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.</span></font></font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>1.
+INTRODUCTION</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Aristotle
+defines virtue as the disposition to act morally and righteously and
+as a mean between deficiency and excess. Similarly, drug consumption
+should be consumed in moderation, where the deficiency is the lack of
+drug consumption, when ill, while excess is drug addiction. Drug
+addiction is the result of the lack of stimulation and release of
+dopamine from small doses of the drug[3]. As a result, addicts
+overconsume the drug in order to reach the same state of euphoria or
+eliminate the withdrawal symptoms. However, even though drug addicts
+can abstain from the drug resulting in a lack of cupidity, they can
+still crave or relapse into addiction. The brain still remembers the
+memories of reward from the dopamine thus, resulting in the
+craving[3]. This paper attempts to predict different types of drug
+consumption based on subject’s age, gender, education, country, and
+personality traits using different classifying algorithms – na<font face="Times New Roman, serif">ï</font>ve
+Bayes, k-nearest neighbors, ZeroR, and J48 decision tree.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	The
+data set contains 1885 subjects with 13 different class attributes –
+mostly consisting of participants from the UK[1]. The 13 attributes
+include age, gender, education, country, ethnicity,  nscore, escore,
+oscore, ascore, cscore, impulsiveness, sensation (ss), and 19
+different drugs[1]. The 19 drugs consist of alcohol, amphetamines
+(amphet), amyl nitrite (amyl), benzodiazepine (benzos), caffeine
+(caffe), cannabis, chocolate (choc), cocaine (coke), ecstasy, heroin,
+ketamine, legal highs (legalh), LSD, methadone (meth), magic
+mushrooms (mushrooms), nicotine, semeron (semer), and VSA[1]. WEKA
+was used for data analysis, and the calculation of accuracy,
+precision, recall, TP rate, and F-measurement were recorded on a
+spreadsheet[4]. The data from the original data set has been
+transformed using a shell script changing the categorical numeric
+values into categorical string values. For some classifiers,
+different pre-processing techniques were used in order to maximum
+accuracy. </font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>2.
+RELATED WORK</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Fehrman,
+Mirks, Muhammad, Egan, and Gorban[2] presented a comparison of
+different classification accuracies of decision tree, random forest,
+k-nearest neighbors, linear discriminant analysis, Gaussian mixture,
+probability density function estimation, logistic regression, and
+na<font face="Times New Roman, serif">ï</font>ve Bayes. The accuracy
+of the results was measured from the specificity and sensitivity
+resulting in accuracies around 70 percent[2]. However, for each
+classification, many attributes were removed from the data set and
+prediction model. For data analysis, Ferhrman et al. compared
+T-scores and CI-scores of the different drugs[2].</font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>3.
+BACKGROUND</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">From
+the data set, some variables were collected through a NEO-FFI-R,
+BIS-11, and ImpSS test. NEO-FFI-R measures a person’s openness to
+experience, conscientiousness, extraversion, agreeableness, and
+neuroticism[1]. These five personality traits were measured in the
+data set via. a personality test[1]. The initial letter of the
+personality pertains to the scores in the data set – nscore,
+cscore, ascore, escore, and oscore. BIS-11 measures impulsiveness
+thus, evident of the impulsive attribute, and ImpSS measures
+sensation, which is the ss attribute. Regarding the different drugs,
+participants were asked questions concerning their drug history, and
+they had to answer: never used, used it over a decade ago, in the
+last decade, year, month, week, or day[1]. </font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>4.
+DATA PRE-PROCESSING</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">The
+original data set contained categorical numeric values for every
+attribute, which was incomprehensible without comments in the data
+set. Therefore, a shell scripted was implemented in order to change
+the numeric values into string values. Additionally, the .txt file
+was converted into an .arff file to process into WEKA. An .arff
+requires three lines of code: @relation, @attribute, and @data. The
+@relation line describes the relation name; the @attribute line
+defines all of the attributes and data types; and @data defines the
+start of the data set[4].</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	In
+order to obtain a higher accuracy and allow the machine to predict
+user and non-user, the data set was divided into two different sets.
+One set defined user as those who used the drug within the year;
+therefore, those participants who answered “used in the last
+decade”, “used it over a decade ago”, and “never used” were
+considered non-users. In the second data set, participants who
+answered “used it in the past year” were also considered
+non-users. Since there is no definitive temporal distinction that
+separates users from non-users, the selection was arbitrary. The
+first set considers those who consume drugs within the past year to
+be users, while the second set considers those who consume drugs
+within the past month to be users.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	The
+experiment used different classifiers to determine the accuracy of
+each drug. When applying the classifier, the data set contained all
+attributes except for the 19 different drugs. The only drug attribute
+was the drug that was predicted. Additionally, some drug attributes
+had a class imbalance problem. WEKA provides a pre-processing
+technique called SMOTE, which resamples the data set applying
+Synthetic Minority Oversampling Technique[4]. This filter was applied
+to amyl, choc, crack, heroin, ketamine, semer, and VSA. Regarding the
+different classifiers, KNN (Ibk) used <i>k</i> = 45, which was
+derived from the square root of the total number of participants, and
+J48 had true assigned to reducedErrorPuning. The other classifiers
+used default parameters.</font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>5.
+EXPERIMENTAL RESULTS</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Table
+1. Monthly Drug Consumption Using Na<font face="Times New Roman, serif">ï</font>ve
+Bayes, KNN, J48, and ZeroR</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><img src="drug_html_1a555ce7be750fb5.gif" name="Object1" align="left" width="671" height="634"/>
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Table
+2. Annual Drug Consumption Using Na<font face="Times New Roman, serif">ï</font>ve
+Bayes, KNN, J48, and ZeroR</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<img src="drug_html_d0aa6fe025646aa8.gif" name="Object2" align="left" width="671" height="634"/>
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%; page-break-before: always">
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><img src="drug_html_d3fedc73be6446a9.png" name="Image1" align="left" width="624" height="351" border="0"/>
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Figure
+1. Average Accuracies of Monthly Drug Consumption</b></font></font></p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><img src="drug_html_c2c01f02d6eac1b6.png" name="Image2" align="left" width="624" height="351" border="0"/>
+<br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Figure
+2. Average Accuracies of Yearly Drug Consumption</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Table
+1 shows the accuracy of drug consumption of those who used the drug
+within the past month, week, and day. Table 2 shows the accuracy of
+drug consumption of those who used the drug within the past year,
+month, week, and day. The accuracy ranges from 56.23-95.34. Although
+the model did predict semer correctly, the accuracies do not
+represent the true accuracy of the model due to biases in the data
+set. In both data sets, out of the 1885 participant, only 6
+participants were considered ‘user’, while 1879 participants were
+considered ‘non-user’. Furthermore, even after the application of
+SMOTE, the instances only increased to 12 users. Therefore, class
+imbalance will bias the results unless a new training set is created.
+</font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	Although
+there are small discrepancies between annual and monthly drug
+consumption, the spreadsheets and graphs show similar results with
+the same drug. Drugs such as alcohol, nicotine, ecstasy, and others
+showed larger deviation due to their popular usage, while unfamiliar
+drugs such as semer had similar accuracies because the time
+differences was not larger enough to affect it.  Additionally, some
+attributes have missing values (?) in KNN and J48 showing how the
+model was bad which was most evidently from oversampling.
+Additionally, none of the attributes for ZeroR were recorded because
+the classifier ignores all of the other attributes except for the
+predicted attribute. Since ZeroR is used to determine the baseline
+performance of the model, its sole purpose would be to compare the
+different accuracies and classifiers.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	Other
+important measures are TP rate, precision, recall, and F-measure. Two
+different values were displayed to show the measures regarding the
+classification of ‘user’(U) and ‘non-user’(NU). Precision
+describes the number of correct classifications from the original
+set, while recall describes the correct classifications out of true
+positives and false negatives. For the majority of classifiers, both
+the precision and recall measures were higher than 60 percent.
+F-measure is combination of precision and recall: </font></font>
+</p>
+<p align="center" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">F-Measure
+= 2*<img src="drug_html_1d8490b08a776d4c.gif" name="Object3" hspace="8" width="120" height="31"/>
+</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">The
+majority of F-measures range around 80 to 90 percent. Therefore,
+altogether, the accuracy, precision, recall, and F-measure evaluate
+the performance and model to be good.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>6.
+CONCLUSION</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">The
+study demonstrates good models for testing the accuracy of various
+drugs using different classifiers based on age, gender, education,
+country, ethnicity, and personality traits[1]. Additionally,
+pre-processing techniques on the data set aided in maximizing the
+accuracy, precision, recall, and F-measure. Fig. 1 and 2 show the
+averages of the different classifiers on each drug based on the
+respective data sets.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Although
+this model was good, it is not the perfect model for classifying
+different drug consumptions evident from the absurd accuracy from
+semer and the missing values from KNN and J48 classifiers. Future
+studies should attempt to develop better models that would retain or
+improve the different measures, while classifying the various drugs
+without inaccurate results. Another possible study would be to do a
+correlational analysis to see which drugs are correlated in their
+usage, where if one person uses <i>x</i> drug, that person is also
+prone to develop an addiction to <i>y</i> drug.</font></font></p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; line-height: 100%; page-break-before: always">
+<font face="Times New Roman, serif"><font size="5" style="font-size: 17pt"><b>7.
+REFERENCES</b></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">[1]
+	Drug 			Consumption 			Data 			Set. </font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+     
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	&lt;<a href="https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29">https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29</a>&gt;
+</font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	Last
+visited November 2018.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">[2]
+	Fehrman, Elaine, Mirkes, Evgeny M., Muhmmad, Awaz K., Egan, Vincent,
+Gorban, </font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+            <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Alexander
+N., “The Five Factor Model of personality and evaluation of drug
+consumption </font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+            <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">risk”,
+pp. 1 – 67, arXiv:1506.069297v2 [stat.AP], Jan. 2017.</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">[3]	Carlson,
+Neil R., <i>Foundations of Behavioral Neuroscience </i><span style="font-style: normal">(9</span><sup><span style="font-style: normal">th</span></sup><span style="font-style: normal">
+internal ed.), </span><span style="font-style: normal">pp. 1 – 519,
+</span></font></font>
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><span style="font-style: normal">	London,
+201</span><span style="font-style: normal">4</span><span style="font-style: normal">.</span></font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">[4]	Weka
+          3 :            Data            Mining            Software  
+         in            Java. 	</font></font></p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">	&lt;<a href="https://www.cs.waikato.ac.nz/ml/weka/index.html">https://www.cs.waikato.ac.nz/ml/weka/index.html</a>&gt;
+Last visited November 2018.</font></font></p>
+</body>
+</html>
